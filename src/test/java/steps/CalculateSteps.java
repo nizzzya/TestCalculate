@@ -5,18 +5,24 @@ import pages.CalculatePage;
 public class CalculateSteps {
     CalculatePage calculatePage = new CalculatePage();
 
+    public void clearInputs() {
+        calculatePage.clearFirstNumInput();
+        calculatePage.clearSecondNumInput();
+    }
 
-    public CheckResultSteps calculate(String firstNum, String secondNum, String operation) throws InterruptedException {
+
+    public CheckResultSteps enterNumbers(String firstNum, String secondNum) throws InterruptedException {
         calculatePage.inputFirstNumber(firstNum);
         calculatePage.inputSecondNumber(secondNum);
-        calculatePage.chooseOperation(operation);
-//        calculatePage.checkOnlyIntegerVariable(onlyInt);
 
         calculatePage.calculate();
-//        calculatePage.waitResult();
         Thread.sleep(5000);
 
         return new CheckResultSteps();
+    }
+
+    public void chooseOperation(String operation) {
+        calculatePage.chooseOperation(operation);
     }
 
     public void selectBuild(String build) {

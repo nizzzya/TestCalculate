@@ -42,8 +42,16 @@ public class CalculatePage extends BasePage {
         firstNumber.sendKeys(val);
     }
 
+    public void clearFirstNumInput() {
+        firstNumber.clear();
+    }
+
     public void inputSecondNumber(String val) {
         secondNumber.sendKeys(val);
+    }
+
+    public void clearSecondNumInput() {
+        secondNumber.clear();
     }
 
     public void chooseOperation(String val) {
@@ -63,9 +71,5 @@ public class CalculatePage extends BasePage {
         String actualResult = answer.getAttribute("value");
         assertEquals(actualResult, expectedValue);
 
-    }
-
-    public void waitResult() throws InterruptedException {
-        driver.manage().wait(3000);
     }
 }
