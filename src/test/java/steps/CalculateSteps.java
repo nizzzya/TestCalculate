@@ -16,7 +16,9 @@ public class CalculateSteps {
         calculatePage.inputSecondNumber(secondNum);
 
         calculatePage.calculate();
-        Thread.sleep(5000);
+
+        calculatePage.waitSpiner();
+
 
         return new CheckResultSteps();
     }

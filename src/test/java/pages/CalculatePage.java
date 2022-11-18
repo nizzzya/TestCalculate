@@ -1,13 +1,13 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
+import java.time.Duration;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -33,9 +33,23 @@ public class CalculatePage extends BasePage {
     @FindBy(id = "numberAnswerField")
     WebElement answer;
 
+    @FindBy(id = "errorMsgField")
+    WebElement errorMessenger;
+
+    @FindBy(id = "calculatingForm")
+    WebElement spinnerForm;
+
     public void chooseBuild(String val) {
         select = new Select(drpBuild);
         select.selectByValue(val);
+    }
+
+
+
+
+    public void waitSpiner() throws InterruptedException {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.invisibilityOf(spinnerForm));
     }
 
     public void inputFirstNumber(String val) {
