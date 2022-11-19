@@ -1,9 +1,6 @@
 package tests;
 
-import org.testng.annotations.BeforeGroups;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class CalculateTest extends BaseTest {
 
@@ -27,7 +24,6 @@ public class CalculateTest extends BaseTest {
                 {Operation.Subtract.value, "-1", "1", "-2"},
                 {Operation.Subtract.value, "0", "0", "0"},
                 {Operation.Subtract.value, "", "", "0"},
-//                {Operation.Subtract.value, "-1", "-1", "11"},
                 {Operation.Subtract.value, "1", "1", "0"},
 
                 {Operation.Multiply.value, "1", "1", "1"},
@@ -36,7 +32,6 @@ public class CalculateTest extends BaseTest {
                 {Operation.Multiply.value, "0", "-1", "0"},
                 {Operation.Multiply.value, "-1", "-1", "1"},
                 {Operation.Multiply.value, "0", "0", "0"},
-//                {Operation.Multiply.value, "1", "1", "11"},//FAILS WITH ElementNotInteractableException
 
                 {Operation.Divide.value, "1", "1", "1"},
                 {Operation.Divide.value, "0", "1", "0"},
@@ -52,7 +47,40 @@ public class CalculateTest extends BaseTest {
                 {Operation.Concatenate.value, "-1", "-1", "-1-1"},
                 {Operation.Concatenate.value, "0", "1", "01"},
                 {Operation.Concatenate.value, "1", "0", "10"},
-                {Operation.Concatenate.value, "0", "0", "00"}
+                {Operation.Concatenate.value, "0", "0", "00"},
+
+                //Double data for tests
+                {Operation.Add.value, "1.2", "1.02", "2.22"},
+                {Operation.Add.value, "-1.3", "-1.003", "-2.303"},
+                {Operation.Add.value, "-1.9", "1.9", "0"},
+                {Operation.Add.value, "0.1", "0.-1", "0"},
+                {Operation.Add.value, "0.1", "-12", "-11.9"},
+
+                {Operation.Subtract.value, "-1.2", "-1.2", "0"},
+                {Operation.Subtract.value, "1.2", "-1.2", "2.4"},
+                {Operation.Subtract.value, "-0.1", "1", "-1.1"},
+                {Operation.Subtract.value, "0.000001", "0.000001", "0"},
+
+                {Operation.Multiply.value, "0.1", "1", "0.1"},
+                {Operation.Multiply.value, "2", "0.3", "0.6"},
+                {Operation.Multiply.value, "-0.22222222", "0", "0"},
+                {Operation.Multiply.value, "0", "-1.0000001", "0"},
+                {Operation.Multiply.value, "-1.12345678", "-1.12345678", "1"},
+
+                {Operation.Divide.value, "0.1", "0.1", "1"},
+                {Operation.Divide.value, "0", "1.12345678", "0"},
+                {Operation.Divide.value, "0.8", "2", "0.4"},
+                {Operation.Divide.value, "5", "0.2", "10"},
+                {Operation.Divide.value, "-1.12345678", "1", "-1"},
+                {Operation.Divide.value, "1", "-1.12345678", "-1"},
+                {Operation.Divide.value, "-1.12345678", "-1.12345678", "1"},
+
+                {Operation.Concatenate.value, "1.22", "1.22", "1.221.22"},
+                {Operation.Concatenate.value, "-1.2", "1.2", "-1.21.2"},
+                {Operation.Concatenate.value, "1.01", "-1.01", "1.01-1.01"},
+                {Operation.Concatenate.value, "-1.1", "-0.1", "-1.1-0.1"},
+                {Operation.Concatenate.value, "0", "1.1", "01.1"},
+                {Operation.Concatenate.value, "1.12345678", "0", "1.123456780"}
 
         };
     }
@@ -191,5 +219,14 @@ public class CalculateTest extends BaseTest {
         steps.chooseOperation(operation);
         steps.enterNumbers(operand1, operand2)
                 .checkSolution(expectedResult);
+    }
+
+    //Error test
+    @Ignore
+    @Test
+    public void testCalculator_Error_Test() throws InterruptedException {
+        steps.chooseOperation("Divide");
+        steps.enterNumbers("1", "0")
+                .checkSolution("0");
     }
 }

@@ -16,6 +16,10 @@ public class CalculateSteps {
         calculatePage.inputSecondNumber(secondNum);
 
         calculatePage.calculate();
+//
+//        if (calculatePage.checkErrorMsg()) {
+//            calculatePage.refreshPage();
+//        }
 
         calculatePage.waitSpiner();
 
