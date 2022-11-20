@@ -65,14 +65,14 @@ public class CalculateTest extends BaseTest {
                 {Operation.Multiply.value, "2", "0.3", "0.6"},
                 {Operation.Multiply.value, "-0.22222222", "0", "0"},
                 {Operation.Multiply.value, "0", "-1.0000001", "0"},
-                {Operation.Multiply.value, "-1.12345678", "-1.12345678", "1"},
+                {Operation.Multiply.value, "-1.1", "-1.1", "1.21"},
 
                 {Operation.Divide.value, "0.1", "0.1", "1"},
                 {Operation.Divide.value, "0", "1.12345678", "0"},
                 {Operation.Divide.value, "0.8", "2", "0.4"},
-                {Operation.Divide.value, "5", "0.2", "10"},
-                {Operation.Divide.value, "-1.12345678", "1", "-1"},
-                {Operation.Divide.value, "1", "-1.12345678", "-1"},
+                {Operation.Divide.value, "5", "0.2", "25"},
+                {Operation.Divide.value, "-1.12345678", "1", "-1.1234567"},
+                {Operation.Divide.value, "1", "-0.1", "-10"},
                 {Operation.Divide.value, "-1.12345678", "-1.12345678", "1"},
 
                 {Operation.Concatenate.value, "1.22", "1.22", "1.221.22"},

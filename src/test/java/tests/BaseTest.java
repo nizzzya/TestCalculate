@@ -2,13 +2,15 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import steps.CalculateSteps;
 
 public class BaseTest {
-    private static WebDriver driver = new ChromeDriver();
+    private static WebDriver driver;
     public CalculateSteps steps;
 
     public static WebDriver getDriver() {
@@ -16,8 +18,15 @@ public class BaseTest {
     }
 
     @BeforeClass
-    public void setUp() {
+    @Parameters("browser")
+    public void setUp(String browser) throws NullPointerException, InterruptedException {
+        if(browser.equalsIgnoreCase("firefox")){
+            driver = new FirefoxDriver();
+        } else if (browser.equalsIgnoreCase("chrome")) {
+            driver = new ChromeDriver();
+        }
         driver.get("https://testsheepnz.github.io/BasicCalculator.html");
+
         steps = new CalculateSteps();
     }
 
