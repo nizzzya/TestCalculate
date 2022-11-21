@@ -84,7 +84,7 @@ public class CalculateTest extends BaseTest {
 
         };
     }
-
+/*
     @BeforeGroups("Build_1")
     private void chooseBuild_1() {
         steps.selectBuild(Build.Build_1.value);
@@ -130,7 +130,8 @@ public class CalculateTest extends BaseTest {
     private void chooseBuild_Prototype() {
         steps.selectBuild(Build.Prototype.value);
     }
-
+*/
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_1")
     public void testCalculator_Build_1(String operation,
                                        String operand1, String operand2,
@@ -140,6 +141,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_2")
     public void testCalculator_Build_2(String operation,
                                        String operand1, String operand2,
@@ -149,6 +151,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_3")
     public void testCalculator_Build_3(String operation,
                                        String operand1, String operand2,
@@ -158,6 +161,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_4")
     public void testCalculator_Build_4(String operation,
                                        String operand1, String operand2,
@@ -167,6 +171,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_5")
     public void testCalculator_Build_5(String operation,
                                        String operand1, String operand2,
@@ -176,6 +181,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_6")
     public void testCalculator_Build_6(String operation,
                                        String operand1, String operand2,
@@ -185,6 +191,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_7")
     public void testCalculator_Build_7(String operation,
                                        String operand1, String operand2,
@@ -194,6 +201,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_8")
     public void testCalculator_Build_8(String operation,
                                        String operand1, String operand2,
@@ -203,6 +211,7 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
+    @Ignore
     @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_9")
     public void testCalculator_Build_9(String operation,
                                        String operand1, String operand2,
@@ -212,7 +221,13 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_Prototype")
+    @BeforeClass
+    @Parameters("build")
+    public void chooseBuild(String build) throws InterruptedException {
+        steps.selectBuild(build);
+    }
+
+    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_Prototype", suiteName = "Calc")
     public void testCalculator_Build_Prototype(String operation,
                                        String operand1, String operand2,
                                        String expectedResult) throws InterruptedException {
@@ -221,12 +236,15 @@ public class CalculateTest extends BaseTest {
                 .checkSolution(expectedResult);
     }
 
-    //Error test
+    //Negative test
     @Ignore
     @Test
-    public void testCalculator_Error_Test() throws InterruptedException {
+    @Parameters({"firstInput", "secondInput"})
+    public void testCalculator_Negative_Test(String firstInput,String secondInput) throws InterruptedException {
+
         steps.chooseOperation("Divide");
-        steps.enterNumbers("1", "0")
+
+        steps.enterNumbers(firstInput, secondInput)
                 .checkSolution("0");
     }
 }

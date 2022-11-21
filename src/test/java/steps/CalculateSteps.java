@@ -27,6 +27,7 @@ public class CalculateSteps {
         return new CheckResultSteps();
     }
 
+
     public void chooseOperation(String operation) {
         calculatePage.chooseOperation(operation);
     }
