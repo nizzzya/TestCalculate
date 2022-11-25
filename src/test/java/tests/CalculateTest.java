@@ -2,6 +2,7 @@ package tests;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import json.DataProviderClass;
 import json.DataTests;
 import json.DataTestsItem;
 import org.testng.annotations.*;
@@ -30,7 +31,7 @@ public class CalculateTest extends BaseTest {
     public Object[][] getJsonDataProvider() throws IOException {
         String jsonPath = "src/test/java/json/dataForTests.json";
 
-        return json.DataProvider.getTestsDataFromJson(jsonPath);
+        return DataProviderClass.getTestsDataFromJson(jsonPath);
 
     }
 

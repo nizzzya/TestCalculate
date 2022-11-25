@@ -9,15 +9,15 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class DataProvider {
+public class DataProviderClass {
     private static Gson gson = new Gson();
 
     public static Object[][] getTestsDataFromJson(String pathJsonFile) throws IOException {
-//        Reader reader = new FileReader("src/main/java/json/dataForTests.json");
+        Reader reader = new FileReader(pathJsonFile);
 
         Type collectionType = new TypeToken<List<DataTestsItem>>() {
         }.getType();
-        List<DataTestsItem> dataTests = gson.fromJson(pathJsonFile, collectionType);
+        List<DataTestsItem> dataTests = gson.fromJson(reader, collectionType);
 
         Object[][] objectTestData = new Object[dataTests.size()][4];
 
