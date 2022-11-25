@@ -21,9 +21,9 @@ public class BaseTest {
     @BeforeClass
     @Parameters("browser")
     public void setUp(String browser) throws NullPointerException, InterruptedException {
-        if(browser.equalsIgnoreCase("firefox")){
+        if("firefox".equalsIgnoreCase(browser)){
             driver = new FirefoxDriver();
-        } else if (browser.equalsIgnoreCase("chrome")) {
+        } else if ("chrome".equalsIgnoreCase(browser)) {
             driver = new ChromeDriver();
         }
         driver.get("https://testsheepnz.github.io/BasicCalculator.html");

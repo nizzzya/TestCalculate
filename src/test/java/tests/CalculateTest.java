@@ -1,17 +1,42 @@
 package tests;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import json.DataTests;
+import json.DataTestsItem;
 import org.testng.annotations.*;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.LinkedList;
+import java.util.List;
+
 public class CalculateTest extends BaseTest {
+
+    @BeforeClass
+    @Parameters("build")
+    public void chooseBuild(String build) throws InterruptedException {
+        steps.selectBuild(build);
+    }
 
     @BeforeMethod
     private void initialize() {
         steps.clearInputs();
     }
 
+    @DataProvider(name = "jsonDataProvider")
+    public Object[][] getJsonDataProvider() throws IOException {
+        String jsonPath = "src/test/java/json/dataForTests.json";
+
+        return json.DataProvider.getTestsDataFromJson(jsonPath);
+
+    }
+
     @DataProvider(name = "testCalculator_WithDataProvider")
     public static Object[][] provideDataWithOperationsForBuilds() {
-        return new Object[][]{
+        Object[][] o = new Object[][]{
                 {Operation.Add.value, "1", "1", "2"},
                 {Operation.Add.value, "0", "0", "0"},
                 {Operation.Add.value, "-1", "-1", "-2"},
@@ -83,154 +108,14 @@ public class CalculateTest extends BaseTest {
                 {Operation.Concatenate.value, "1.12345678", "0", "1.123456780"}
 
         };
-    }
-/*
-    @BeforeGroups("Build_1")
-    private void chooseBuild_1() {
-        steps.selectBuild(Build.Build_1.value);
+        return o;
     }
 
-    @BeforeGroups("Build_2")
-    private void chooseBuild_2() {
-        steps.selectBuild(Build.Build_2.value);
-    }
-    @BeforeGroups("Build_3")
-    private void chooseBuild_3() {
-        steps.selectBuild(Build.Build_3.value);
-    }
-
-    @BeforeGroups("Build_4")
-    private void chooseBuild_4() {
-        steps.selectBuild(Build.Build_4.value);
-    }
-    @BeforeGroups("Build_5")
-    private void chooseBuild_5() {
-        steps.selectBuild(Build.Build_5.value);
-    }
-
-    @BeforeGroups("Build_6")
-    private void chooseBuild_6() {
-        steps.selectBuild(Build.Build_6.value);
-    }
-    @BeforeGroups("Build_7")
-    private void chooseBuild_7() {
-        steps.selectBuild(Build.Build_7.value);
-    }
-
-    @BeforeGroups("Build_8")
-    private void chooseBuild_8() {
-        steps.selectBuild(Build.Build_8.value);
-    }
-    @BeforeGroups("Build_9")
-    private void chooseBuild_9() {
-        steps.selectBuild(Build.Build_9.value);
-    }
-
-    @BeforeGroups("Build_Prototype")
-    private void chooseBuild_Prototype() {
-        steps.selectBuild(Build.Prototype.value);
-    }
-*/
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_1")
-    public void testCalculator_Build_1(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_2")
-    public void testCalculator_Build_2(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_3")
-    public void testCalculator_Build_3(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_4")
-    public void testCalculator_Build_4(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_5")
-    public void testCalculator_Build_5(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_6")
-    public void testCalculator_Build_6(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_7")
-    public void testCalculator_Build_7(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_8")
-    public void testCalculator_Build_8(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @Ignore
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_9")
-    public void testCalculator_Build_9(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
-        steps.chooseOperation(operation);
-        steps.enterNumbers(operand1, operand2)
-                .checkSolution(expectedResult);
-    }
-
-    @BeforeClass
-    @Parameters("build")
-    public void chooseBuild(String build) throws InterruptedException {
-        steps.selectBuild(build);
-    }
-
-    @Test(dataProvider = "testCalculator_WithDataProvider", groups = "Build_Prototype", suiteName = "Calc")
+    @Test(dataProvider = "jsonDataProvider")
+//    @Test(dataProvider = "testCalculator_WithDataProvider")
     public void testCalculator_Build_Prototype(String operation,
-                                       String operand1, String operand2,
-                                       String expectedResult) throws InterruptedException {
+                                               String operand1, String operand2,
+                                               String expectedResult) throws InterruptedException {
         steps.chooseOperation(operation);
         steps.enterNumbers(operand1, operand2)
                 .checkSolution(expectedResult);
@@ -240,7 +125,7 @@ public class CalculateTest extends BaseTest {
     @Ignore
     @Test
     @Parameters({"firstInput", "secondInput"})
-    public void testCalculator_Negative_Test(String firstInput,String secondInput) throws InterruptedException {
+    public void testCalculator_Negative_Test(String firstInput, String secondInput) throws InterruptedException {
 
         steps.chooseOperation("Divide");
 
