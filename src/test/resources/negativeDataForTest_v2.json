@@ -1,0 +1,43 @@
+{
+  "builds": {
+    "0": "Prototype",
+    "1" : "1",
+    "2" : "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9"
+  },
+  "operation": {
+    "add": "Add",
+    "subtract": "Subtract",
+    "multiply": "Multiply",
+    "divide": "Divide",
+    "concatenate": "Concatenate"
+  },
+  "dataNumAndResult": {
+    "data1": {
+      "firstNum": "0",
+      "secondNum": "1",
+      "expectedResult": "777"
+    },
+    "data2": {
+      "firstNum": "Frizz",
+      "secondNum": "1",
+      "expectedResult": "0"
+    },
+    "data3": {
+      "firstNum": "0",
+      "secondNum": "Woo",
+      "expectedResult": "1"
+    },
+    "data4": {
+      "firstNum": "0",
+      "secondNum": "1",
+      "expectedResult": "9"
+    }
+  }
+}

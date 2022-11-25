@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Negative_Tests" parallel="tests" thread-count="4" verbose="10">
+    <test name="firstInputWithChar">
+        <parameter name="firstInput" value="Woo"></parameter>
+        <parameter name="secondInput" value="100"></parameter>
+        <classes>
+            <class name="tests.CalculateTest"></class>
+        </classes>
+    </test>
+    <test name="secondInputWithChar">
+        <parameter name="firstInput" value="100"></parameter>
+        <parameter name="secondInput" value="Woo"></parameter>
+        <classes>
+            <class name="tests.CalculateTest"></class>
+        </classes>
+    </test>
+    <test name="emptyInputs">
+        <parameter name="firstInput" value=""></parameter>
+        <parameter name="secondInput" value=""></parameter>
+        <classes>
+            <class name="tests.CalculateTest"></class>
+        </classes>
+    </test>
+    <test name="divideByZero">
+        <parameter name="firstInput" value="333"></parameter>
+        <parameter name="secondInput" value="0"></parameter>
+        <classes>
+            <class name="tests.CalculateTest"></class>
+        </classes>
+    </test>
+</suite>

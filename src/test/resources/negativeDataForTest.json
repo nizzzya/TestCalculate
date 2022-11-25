@@ -1,0 +1,32 @@
+{
+  "firstSymbolZero": {
+    "data1": {
+      "firstNum": "0",
+      "secondNum": "1",
+      "expectedResult": "0",
+      "option": "Add",
+      "build": "1"
+    },
+    "data2": {
+      "firstNum": "0",
+      "secondNum": "1",
+      "expectedResult": "0",
+      "option": "Subtract",
+      "build": "1"
+    },
+    "data3": {
+      "firstNum": "0",
+      "secondNum": "1",
+      "expectedResult": "1",
+      "option": "Multiply",
+      "build": "1"
+    },
+    "data4": {
+      "firstNum": "0",
+      "secondNum": "1",
+      "expectedResult": "9",
+      "option": "Divide",
+      "build": "1"
+    }
+  }
+}
