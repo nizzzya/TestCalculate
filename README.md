@@ -1,4 +1,5 @@
 # TestCalculate
+use 'dev' branche
 
 Test project for course AQA by Java
 
