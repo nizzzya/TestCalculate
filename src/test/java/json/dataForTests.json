@@ -33,7 +33,7 @@
     "option": "Add",
     "firstNumber" : "1",
     "secondNumber": "0",
-    "expectedResult": "0"
+    "expectedResult": "1"
   },
   {
     "option": "Add",
@@ -200,8 +200,8 @@
   {
     "option": "Add",
     "firstNumber" : "1.2",
-    "secondNumber": "1.02",
-    "expectedResult": "2.22"
+    "secondNumber": "1.2",
+    "expectedResult": "2.4"
   },
   {
     "option": "Add",
@@ -249,7 +249,7 @@
     "option": "Subtract",
     "firstNumber" : "-0.000001",
     "secondNumber": "0.000001",
-    "expectedResult": "0"
+    "expectedResult": "-0.000002"
   },
   {
     "option": "Multiply",
@@ -279,7 +279,7 @@
     "option": "Multiply",
     "firstNumber" : "-1.1",
     "secondNumber": "-1.1",
-    "expectedResult": "1.21"
+    "expectedResult": "1.2100000000000002"
   },
   {
     "option": "Multiply",
@@ -321,7 +321,7 @@
     "option": "Divide",
     "firstNumber" : "1",
     "secondNumber": "-0.12345678",
-    "expectedResult": "-0.12345678"
+    "expectedResult": "-8.100005913004317"
   },
   {
     "option": "Divide",

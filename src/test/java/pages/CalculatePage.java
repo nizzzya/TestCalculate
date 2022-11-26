@@ -1,21 +1,15 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.function.Function;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class CalculatePage extends BasePage {
     private Select select;
@@ -93,6 +87,12 @@ public class CalculatePage extends BasePage {
     public void checkOnCorrectResult(String expectedValue) {
         String actualResult = answer.getAttribute("value");
         assertEquals(actualResult, expectedValue);
+
+    }
+
+    public void checkUncorrectedResult(String expectedValue) {
+        String actualResult = answer.getAttribute("value");
+        assertNotEquals(actualResult, expectedValue);
 
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="GenericTestSuits">
+<suite name="Run_All_Suits">
     <suite-files >
         <suite-file path="suites/suite_Building_1_positive.xml"/>
         <suite-file path="suites/suite_Building_2_positive.xml"/>

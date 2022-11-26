@@ -1,4 +1,4 @@
-<suite name="TestSuite"  parallel="classes" thread-count="2">
+<suite name="Build_9" >
 
     <test name="ChromeTest_build_9">
         <parameter name="browser" value="Chrome"/>

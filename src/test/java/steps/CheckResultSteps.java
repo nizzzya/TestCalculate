@@ -9,4 +9,9 @@ public class CheckResultSteps {
         calculatePage.checkOnCorrectResult(expectedResult);
         return this;
     }
+
+    public CheckResultSteps checkForNegativeInput ( String expectedResult ) {
+        calculatePage.checkUncorrectedResult(expectedResult);
+        return this;
+    }
 }

@@ -1,10 +1,10 @@
-<suite name="TestSuite"  parallel="classes" thread-count="2">
+<suite name="Build_1">
 
     <test name="ChromeTest_build_1">
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="tests.CalculateTest">
-                <parameter name="build" value="1"></parameter>
+                <parameter name="build" value="1"/>
             </class>
         </classes>
     </test>
@@ -13,7 +13,7 @@
         <parameter name="browser" value="Firefox"/>
         <classes>
             <class name="tests.CalculateTest">
-                <parameter name="build" value="1"></parameter>
+                <parameter name="build" value="1"/>
             </class>
         </classes>
     </test>

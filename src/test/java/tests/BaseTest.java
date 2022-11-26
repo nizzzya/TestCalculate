@@ -20,7 +20,7 @@ public class BaseTest {
 
     @BeforeClass
     @Parameters("browser")
-    public void setUp(String browser) throws NullPointerException, InterruptedException {
+    public void setUp(@Optional("chrome") String browser) throws NullPointerException, InterruptedException {
         if("firefox".equalsIgnoreCase(browser)){
             driver = new FirefoxDriver();
         } else if ("chrome".equalsIgnoreCase(browser)) {

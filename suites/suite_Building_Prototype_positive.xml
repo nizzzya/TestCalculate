@@ -1,4 +1,4 @@
-<suite name="TestSuite" >
+<suite name="Prototype_Build" >
 
     <test name="ChromeTest_build_Prototype">
         <parameter name="browser" value="Chrome"/>
