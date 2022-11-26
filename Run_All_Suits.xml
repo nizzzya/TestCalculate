@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GenericTestSuits">
+    <suite-files >
+        <suite-file path="suites/suite_Building_1_positive.xml"/>
+        <suite-file path="suites/suite_Building_2_positive.xml"/>
+        <suite-file path="suites/suite_Building_3_positive.xml"/>
+        <suite-file path="suites/suite_Building_4_positive.xml"/>
+        <suite-file path="suites/suite_Building_5_positive.xml"/>
+        <suite-file path="suites/suite_Building_6_positive.xml"/>
+        <suite-file path="suites/suite_Building_7_positive.xml"/>
+        <suite-file path="suites/suite_Building_8_positive.xml"/>
+        <suite-file path="suites/suite_Building_9_positive.xml"/>
+        <suite-file path="suites/suite_Building_Prototype_positive.xml"/>
+    </suite-files>
+</suite>

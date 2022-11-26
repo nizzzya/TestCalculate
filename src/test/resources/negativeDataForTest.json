@@ -1,32 +1,62 @@
-{
-  "firstSymbolZero": {
-    "data1": {
-      "firstNum": "0",
-      "secondNum": "1",
-      "expectedResult": "0",
-      "option": "Add",
-      "build": "1"
-    },
-    "data2": {
-      "firstNum": "0",
-      "secondNum": "1",
-      "expectedResult": "0",
-      "option": "Subtract",
-      "build": "1"
-    },
-    "data3": {
-      "firstNum": "0",
-      "secondNum": "1",
-      "expectedResult": "1",
-      "option": "Multiply",
-      "build": "1"
-    },
-    "data4": {
-      "firstNum": "0",
-      "secondNum": "1",
-      "expectedResult": "9",
-      "option": "Divide",
-      "build": "1"
-    }
+[
+  {
+    "option": "",
+    "firstNumber" : "",
+    "secondNumber": "",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "eng",
+    "secondNumber": "10",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "10",
+    "secondNumber": "eng",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "eng",
+    "secondNumber": "eng",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "укр",
+    "secondNumber": "10",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "10..1",
+    "secondNumber": "10",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "10ю1",
+    "secondNumber": "10",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "10r1",
+    "secondNumber": "10",
+    "expectedResult": ""
+  },
+  {
+    "option": "",
+    "firstNumber" : "0",
+    "secondNumber": "0",
+    "expectedResult": "-10"
+  },
+  {
+    "option": "",
+    "firstNumber" : "-11-10",
+    "secondNumber": "0",
+    "expectedResult": ""
   }
-}
+]

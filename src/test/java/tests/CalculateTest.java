@@ -36,7 +36,6 @@ public class CalculateTest extends BaseTest {
     }
 
     @Test(dataProvider = "jsonDataProvider")
-//    @Test(dataProvider = "testCalculator_WithDataProvider")
     public void testCalculator_Build_Prototype(String operation,
                                                String operand1, String operand2,
                                                String expectedResult) throws InterruptedException {
@@ -46,14 +45,23 @@ public class CalculateTest extends BaseTest {
     }
 
     //Negative test
-    @Ignore
-    @Test
-    @Parameters({"firstInput", "secondInput"})
-    public void testCalculator_Negative_Test(String firstInput, String secondInput) throws InterruptedException {
+
+
+    @DataProvider(name = "negativeDataProvider")
+    public Object[][] getJsonNegativeDataProvider() throws IOException {
+        String jsonPath = "src/test/resources/negativeDataForTest.json";
+
+        return DataProviderClass.getTestsDataFromJson(jsonPath);
+
+    }
+    @Test(dataProvider = "negativeDataProvider")
+    public void testCalculator_Negative_Test(String operation,
+                                             String operand1, String operand2,
+                                             String expectedResult) throws InterruptedException {
 
         steps.chooseOperation("Divide");
 
-        steps.enterNumbers(firstInput, secondInput)
-                .checkSolution("0");
+        steps.enterNumbers(operand1, operand2)
+                .checkSolution(expectedResult);
     }
 }
