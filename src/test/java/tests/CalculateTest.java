@@ -51,7 +51,7 @@ public class CalculateTest extends BaseTest {
                                              String operand1, String operand2,
                                              String expectedResult) throws InterruptedException {
 
-        steps.chooseOperation("Add");
+        steps.chooseOperation(Operation.Add.value);
 
         steps.enterNumbers(operand1, operand2)
                 .checkForNegativeInput(expectedResult);
@@ -61,7 +61,7 @@ public class CalculateTest extends BaseTest {
                                              String operand1, String operand2,
                                              String expectedResult) throws InterruptedException {
 
-        steps.chooseOperation("Subtract");
+        steps.chooseOperation(Operation.Subtract.value);
         steps.enterNumbers(operand1, operand2)
                 .checkForNegativeInput(expectedResult);
     }
@@ -70,7 +70,7 @@ public class CalculateTest extends BaseTest {
                                              String operand1, String operand2,
                                              String expectedResult) throws InterruptedException {
 
-        steps.chooseOperation("Multiply");
+        steps.chooseOperation(Operation.Multiply.value);
 
         steps.enterNumbers(operand1, operand2)
                 .checkForNegativeInput(expectedResult);
@@ -80,7 +80,7 @@ public class CalculateTest extends BaseTest {
                                              String operand1, String operand2,
                                              String expectedResult) throws InterruptedException {
 
-        steps.chooseOperation("Divide");
+        steps.chooseOperation(Operation.Divide.value);
 
         steps.enterNumbers(operand1, operand2)
                 .checkForNegativeInput(expectedResult);
@@ -90,7 +90,7 @@ public class CalculateTest extends BaseTest {
                                              String operand1, String operand2,
                                              String expectedResult) throws InterruptedException {
 
-        steps.chooseOperation("Concatenate");
+        steps.chooseOperation(Operation.Concatenate.value);
 
         steps.enterNumbers(operand1, operand2)
                 .checkForNegativeInput(expectedResult);
