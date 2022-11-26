@@ -1,60 +1,60 @@
 [
   {
-    "option": "",
+    
     "firstNumber" : "",
     "secondNumber": "",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "eng",
     "secondNumber": "10",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "10",
     "secondNumber": "eng",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "eng",
     "secondNumber": "eng",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "укр",
     "secondNumber": "10",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "10..1",
     "secondNumber": "10",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "10ю1",
     "secondNumber": "10",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "10r1",
     "secondNumber": "10",
     "expectedResult": ""
   },
   {
-    "option": "",
+    
     "firstNumber" : "0",
     "secondNumber": "0",
     "expectedResult": "-10"
   },
   {
-    "option": "",
+    
     "firstNumber" : "-11-10",
     "secondNumber": "0",
     "expectedResult": ""
