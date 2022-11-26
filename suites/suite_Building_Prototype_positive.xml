@@ -1,0 +1,21 @@
+<suite name="TestSuite" >
+
+    <test name="ChromeTest_build_Prototype">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="tests.CalculateTest">
+                <parameter name="build" value="0"></parameter>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Mozila_build_Prototype">
+        <parameter name="browser" value="Firefox"/>
+        <classes>
+            <class name="tests.CalculateTest">
+                <parameter name="build" value="0"></parameter>
+            </class>
+        </classes>
+    </test>
+
+</suite>
